@@ -7,7 +7,6 @@ import Reveal from './pages/Reveal';
 import Gallery from './pages/Gallery';
 import { AnimatePresence } from 'framer-motion';
 
-// Separate component for Routes to use useLocation hook
 const AnimatedRoutes = () => {
   const location = useLocation();
 

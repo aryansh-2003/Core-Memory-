@@ -5,6 +5,7 @@ import { getWishHistory, StoredWish } from '../utils';
 import { Heart, Sparkles, Zap, Filter, ArrowDownUp, PenTool } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
+
 const Gallery = () => {
     const [filter, setFilter] = useState('All Vibes');
     const [history, setHistory] = useState<StoredWish[]>([]);
@@ -74,6 +75,7 @@ const Gallery = () => {
                     ))}
                 </div>
             </div>
+      
 
             {/* Grid */}
             {filteredItems.length === 0 ? (
@@ -130,6 +132,7 @@ const Gallery = () => {
                         );
                     })}
                 </div>
+                
             )}
         </div>
     );

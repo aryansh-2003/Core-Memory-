@@ -4,6 +4,10 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import anime from 'animejs';
 import { ArrowRight, Sparkles, Heart, Zap, Binary, Activity, Share2, Music, BarChart3 } from 'lucide-react';
 import { VibeType } from '../types';
+import { lazy } from 'react';
+
+const Hyperspeed = lazy(() => import('../components/Hyperspeed'))
+
 
 // Animation Variants
 const fadeInUp = {
@@ -42,12 +46,14 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen w-full relative bg-[#050505] text-white overflow-x-hidden selection:bg-pink-500/30">
-      
+           
       {/* Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 origin-left z-50"
         style={{ scaleX }}
       />
+
+      
 
       {/* --- ENHANCED BACKGROUND FLARES & ATMOSPHERE --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -61,6 +67,7 @@ const Landing = () => {
             className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-pink-600/30 via-purple-900/10 to-transparent rounded-full blur-[120px] mix-blend-screen" 
          />
 
+                
          {/* 3. Left Side Ambient Flare (Cool Blue/Purple) */}
          <motion.div 
             animate={{ x: [-20, 20, -20], opacity: [0.3, 0.5, 0.3] }}
@@ -77,6 +84,8 @@ const Landing = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-6 pt-24 pb-32 flex flex-col items-center">
+
+      
         
         {/* --- HERO SECTION --- */}
         <motion.div 
@@ -85,12 +94,14 @@ const Landing = () => {
             transition={{ delay: 0.5 }}
             className="mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-pink-500/20 bg-pink-500/10 text-[10px] font-mono tracking-widest text-pink-400 uppercase backdrop-blur-md shadow-[0_0_15px_rgba(236,72,153,0.2)]"
         >
+            
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
             </span>
             <span>Surprise Wish v2.0 Live</span>
         </motion.div>
+        
 
         <h1 className="text-center font-['Space_Grotesk'] font-bold leading-[0.85] tracking-tighter mb-8 perspective-1000 relative">
             {/* Backglow for Text */}
@@ -120,6 +131,8 @@ const Landing = () => {
             High-fidelity, ethereal greeting cards for the internet age. <br className="hidden md:block"/>
             Weave a feeling that echoes forever in the cyber-void.
         </motion.p>
+        
+        
 
         <Link to="/create">
             <motion.button
@@ -134,16 +147,18 @@ const Landing = () => {
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
             </motion.button>
         </Link>
-
+    
 
         {/* --- TRENDING AESTHETICS --- */}
+        
         <motion.div 
-            initial="hidden"
+            initial="visible"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
             className="mt-40 w-full max-w-6xl"
         >
+             
             <div className="flex items-center justify-between mb-10 px-2">
                 <div className="flex items-center gap-3">
                     <Sparkles size={20} className="text-pink-500" />
@@ -157,6 +172,47 @@ const Landing = () => {
                     View All <ArrowRight size={14} />
                 </motion.a>
             </div>
+
+            <div loading="lazy" className="w-screen h-screen absolute left-0 right-0 -z-10">
+                 <Hyperspeed
+                      effectOptions={{
+                          onSpeedUp: () => { },
+                          onSlowDown: () => { },
+                          distortion: 'turbulentDistortion',
+                          length: 400,
+                          roadWidth: 10,
+                          islandWidth: 2,
+                          lanesPerRoad: 4,
+                          fov: 90,
+                          fovSpeedUp: 150,
+                          speedUp: 2,
+                          carLightsFade: 0.4,
+                          totalSideLightSticks: 20,
+                          lightPairsPerRoadWay: 40,
+                          shoulderLinesWidthPercentage: 0.05,
+                          brokenLinesWidthPercentage: 0.1,
+                          brokenLinesLengthPercentage: 0.5,
+                          lightStickWidth: [0.12, 0.5],
+                          lightStickHeight: [1.3, 1.7],
+                          movingAwaySpeed: [60, 80],
+                          movingCloserSpeed: [-120, -160],
+                          carLightsLength: [400 * 0.03, 400 * 0.2],
+                          carLightsRadius: [0.05, 0.14],
+                          carWidthPercentage: [0.3, 0.5],
+                          carShiftX: [-0.8, 0.8],
+                          carFloorSeparation: [0, 5],
+                          colors: {
+                          roadColor: 0x080808,
+                          islandColor: 0x0a0a0a,
+                          background: 0x000000,
+                          shoulderLines: 0xFFFFFF,
+                          brokenLines: 0xFFFFFF,
+                          leftCars: [0xD856BF, 0x6750A2, 0xC247AC],
+                          rightCars: [0x03B3C3, 0x0E5EA5, 0x324555],
+                          sticks: 0x03B3C3,
+                          }
+                      }}
+                      /></div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
@@ -207,6 +263,7 @@ const Landing = () => {
                         </div>
                     </div>
                 </motion.div>
+                
 
                 {/* CARD 3: CYBER HEART (Wireframe/Gold Look) */}
                 <motion.div variants={fadeInUp} whileHover={{ y: -10 }} className="group cursor-pointer">
@@ -341,11 +398,14 @@ const Landing = () => {
 
       </div>
       
+      
       {/* Footer minimal */}
       <footer className="w-full py-6 text-center text-zinc-600 text-[10px] uppercase tracking-widest">
          © 2024 Surprise Wish Inc. // Est. Digital Romance
       </footer>
+      
     </div>
+    
   );
 };
 
