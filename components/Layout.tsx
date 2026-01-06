@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { Heart, Plus, User, Menu, X, Image, Info, Home } from 'lucide-react';
+import logo from '../pages/logo.png'
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
@@ -17,11 +18,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <nav className="fixed top-0 w-full z-50 border-b border-white/5 bg-[#050505]/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2 group z-50">
-                <div className="w-8 h-8 rounded-full bg-pink-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Heart size={16} fill="currentColor" className="text-white" />
-                </div>
+                    <img className="w-12 lg:w-[10%]" src={logo} alt="" />
                 <span className="font-['Space_Grotesk'] font-bold text-lg tracking-tight hidden sm:block">Surprise Wish Gen</span>
-                <span className="font-['Space_Grotesk'] font-bold text-lg tracking-tight sm:hidden">SWG</span>
+                <span className="font-['Space_Grotesk'] font-bold text-lg tracking-tight sm:hidden">Your Wishes</span>
             </Link>
 
             {/* Desktop Nav */}
@@ -93,14 +92,14 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                             <span className="font-medium">Home</span>
                         </Link>
                         
-                        <Link 
+                        {/* <Link 
                             to="/create" 
                             onClick={closeSidebar}
                             className={`flex items-center gap-4 p-4 rounded-xl transition-all ${location.pathname === '/create' ? 'bg-white/10 text-white' : 'text-zinc-400 hover:bg-white/5 hover:text-white'}`}
                         >
                             <Plus size={20} />
                             <span className="font-medium">Create Wish</span>
-                        </Link>
+                        </Link> */}
 
                         <Link 
                             to="/gallery" 
@@ -121,7 +120,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                         </Link>
                     </div>
 
-                    <div className="mt-auto pt-6 border-t border-white/5">
+                    {/* <div className="mt-auto pt-6 border-t border-white/5">
                         <Link to="/create" onClick={closeSidebar}>
                             <button className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold shadow-lg shadow-purple-900/20 hover:shadow-purple-900/40 transition-all active:scale-95 flex items-center justify-center gap-2">
                                 <Plus size={18} /> Create New Wish
@@ -130,7 +129,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                         <p className="text-center text-zinc-600 text-[10px] mt-6 font-mono uppercase tracking-widest">
                             v2.0.4 // Mobile
                         </p>
-                    </div>
+                    </div> */}
                 </motion.div>
             </>
         )}

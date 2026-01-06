@@ -6,12 +6,14 @@ import Creator from './pages/Creator';
 import Reveal from './pages/Reveal';
 import Gallery from './pages/Gallery';
 import { AnimatePresence } from 'framer-motion';
+import { ReactLenis } from 'lenis/react'
 
 const AnimatedRoutes = () => {
   const location = useLocation();
 
   return (
     <AnimatePresence mode="wait">
+      <ReactLenis root />
         <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Landing />} />
             <Route path="/gallery" element={<Gallery />} />
