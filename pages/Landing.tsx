@@ -161,6 +161,7 @@ const Landing = () => {
             High-fidelity, ethereal greeting cards for the internet age. <br className="hidden md:block"/>
             Weave a feeling that echoes forever in the cyber-void.
         </motion.p>
+                <Link to="/create">
 
         <motion.button
             initial={{ opacity: 0, scale: 0.9 }}
@@ -172,11 +173,10 @@ const Landing = () => {
             style={{ willChange: 'transform' }}
         >
             <span className="relative z-10 flex items-center gap-2 text-lg tracking-wide">
-                <Link to="/create">
                 Craft a Digital Love Note <Heart size={18} fill="currentColor" />
-                </Link>
             </span>
         </motion.button>
+                </Link>
 
         <motion.div
             initial="hidden"
@@ -339,7 +339,7 @@ const Landing = () => {
                 <p className="text-white/80 text-base md:text-lg mb-10 max-w-lg mx-auto font-medium">
                     Join the romantic revolution. Create a core memory they can keep in their pocket forever.
                 </p>
-                <Link to="/#/create">
+                <Link className="absolute bg-yellow-500" to="/#/create">
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
