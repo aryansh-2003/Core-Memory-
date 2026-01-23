@@ -339,7 +339,7 @@ const Landing = () => {
                 <p className="text-white/80 text-base md:text-lg mb-10 max-w-lg mx-auto font-medium">
                     Join the romantic revolution. Create a core memory they can keep in their pocket forever.
                 </p>
-                <Link to="/create">
+                <Link to="/#/create">
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
