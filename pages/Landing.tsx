@@ -339,16 +339,18 @@ const Landing = () => {
                 <p className="text-white/80 text-base md:text-lg mb-10 max-w-lg mx-auto font-medium">
                     Join the romantic revolution. Create a core memory they can keep in their pocket forever.
                 </p>
+                <Link to="/create">
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="px-8 py-4 bg-black text-white rounded-full font-bold text-sm shadow-xl flex items-center gap-2 mx-auto hover:bg-zinc-900 transition-colors"
                     style={{ willChange: 'transform' }}
                 >
-                    <Link to="/create">
+                    
                         Start Creating Free <Heart size={16} fill="#FF0055" className="text-[#FF0055]" />
-                    </Link>
+                    
                 </motion.button>
+                </Link>
             </div>
         </motion.div>
 
